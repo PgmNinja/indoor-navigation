@@ -1,0 +1,24 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+env/
+env_3.8/
+
+# IDE files
+.vscode/
+.idea/
+
+# Miscellaneous
+*.pyo
+*.pyd
+*.swp
+*~
+*.bak
