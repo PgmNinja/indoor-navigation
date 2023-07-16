@@ -6,6 +6,7 @@ read -p "How many times would you like to save the access points? : " n
 read -p "Do you want to train the model after saving the access points? 1 - Yes, 2 - No: " y
 
 count=1
+yes_or_no=$((y))
 
 while [ $count -le $n ];
     do
@@ -18,7 +19,7 @@ while [ $count -le $n ];
         fi
     done
 
-if [ $y ]; then
+if [ $yes_or_no -eq 1 ]; then
     sudo python3 -m detect_location.train_model
     echo "Successfully trained the model!"
 fi
