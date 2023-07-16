@@ -1,24 +1,17 @@
 
-import time
-from tqdm import tqdm
+import sys
 from get_data.utils import ensure_data_path, get_label_file, write_data
 
 
-def learn(label, data, n=1):
+def learn(label, data):
     path = ensure_data_path()
     label_path = get_label_file(path, label + ".txt")
-    for i in tqdm(range(n)):
-        if i != 0:
-            time.sleep(15)
-        try:
-            if data:
-                write_data(label_path, data)
-        except KeyboardInterrupt:
-            break
+    if data:
+        write_data(label_path, data)
 
 
 def main():
-    location = input('Enter the location: ').strip()
+    location = sys.argv[1]
     from get_data.bluetooth_devices import get_bluetooth_scanner
     from get_data.wifi_devices import get_wifi_scanner
 
@@ -29,6 +22,7 @@ def main():
     wifi_devices = wifi_scanner.get_access_points()
 
     data_to_write = {**wifi_devices, **bluetooth_devices}
+
     learn(location, data_to_write)
 
 
