@@ -24,3 +24,5 @@ env_3.8/
 *.bak
 
 locations
+
+saved_model.pkl

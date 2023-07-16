@@ -33,12 +33,25 @@ def split_escaped(string, separator):
     result.append(current)
     return result
 
+def rssi_to_signal_quality(rssi):
+    if rssi:
+        rssi_min = -100
+        rssi_max = -40
+        quality_min = 0
+        quality_max = 100
+
+        signal_quality = (rssi - rssi_min) * (quality_max - quality_min) / (rssi_max - rssi_min) + quality_min
+        signal_quality = int(round(signal_quality))
+
+        return signal_quality
+    return 0
+
 
 def access_pts_to_dict(access_points, device_type):
     if device_type == 'wifi':
         return {ap['ssid'] + " " + ap['bssid']: ap['quality'] for ap in access_points if ap['bssid'] in ALLOWED_BSSID}
     elif device_type == 'ble':
-        return {ap['name'] + " " + ap['address']: ap['rssi'] for ap in access_points}
+        return {ap['name'] + " " + ap['address']: rssi_to_signal_quality(ap['rssi']) for ap in access_points}
 
 
 def write_data(label_path, data):
