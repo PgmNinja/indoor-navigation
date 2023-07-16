@@ -53,19 +53,18 @@ class WifiScanner(object):
 class DataFromWifiScanner(WifiScanner):
 
     def get_cmd(self):
-        return "nmcli -t -f ssid,bssid,signal,security,in-use device wifi list"
+        return "nmcli -t -f ssid,bssid,signal,security device wifi list"
 
     def parse_output(self, output):
         results = []
 
         for line in output.strip().split('\n'):
             try:
-                ssid, bssid, quality, security, in_use = split_escaped(line, ':')
+                ssid, bssid, quality, security = split_escaped(line, ':')
             except ValueError:
                 continue
-            if in_use == '*':
-                access_point = AccessPoint(ssid, bssid, int(quality), security)
-                results.append(access_point)
+            access_point = AccessPoint(ssid, bssid, int(quality), security)
+            results.append(access_point)
 
         return results
 

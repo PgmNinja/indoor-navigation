@@ -1,5 +1,0 @@
-{"GNXS-4894F0 BC:62:D2:48:94:F0": 47, "boAt Rockerz 255 Pro+ 30:63:71:49:F3:FE": -53}
-{"GNXS-4894F0 BC:62:D2:48:94:F0": 48, "boAt Rockerz 255 Pro+ 30:63:71:49:F3:FE": -60}
-{"GNXS-4894F0 BC:62:D2:48:94:F0": 46, "boAt Rockerz 255 Pro+ 30:63:71:49:F3:FE": -66}
-{"GNXS-4894F0 BC:62:D2:48:94:F0": 48, "boAt Rockerz 255 Pro+ 30:63:71:49:F3:FE": -53}
-{"GNXS-4894F0 BC:62:D2:48:94:F0": 49, "boAt Rockerz 255 Pro+ 30:63:71:49:F3:FE": -51}

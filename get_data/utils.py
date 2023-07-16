@@ -1,6 +1,8 @@
 import os
 import json
 
+ALLOWED_BSSID = ['BC:62:D2:48:94:F0']
+
 def ensure_str(output):
     try:
         output = output.decode("utf8",errors='ignore')
@@ -34,7 +36,7 @@ def split_escaped(string, separator):
 
 def access_pts_to_dict(access_points, device_type):
     if device_type == 'wifi':
-        return {ap['ssid'] + " " + ap['bssid']: ap['quality'] for ap in access_points}
+        return {ap['ssid'] + " " + ap['bssid']: ap['quality'] for ap in access_points if ap['bssid'] in ALLOWED_BSSID}
     elif device_type == 'ble':
         return {ap['name'] + " " + ap['address']: ap['rssi'] for ap in access_points}
 
