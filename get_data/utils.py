@@ -62,7 +62,7 @@ def write_data(label_path, data):
 
 def get_data_path(path=None):
     if path is None:
-        path = os.path.join('./', "locations")
+        path = os.path.join('./detect_location', "locations")
     return os.path.expanduser(path)
 
 def ensure_data_path():

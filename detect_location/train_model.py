@@ -33,7 +33,7 @@ def train_model(path=None):
         raise ValueError("No wifi access points have been found during training")
     lp = get_pipeline()
     lp.fit(X, y)
-    with open('saved_model.pkl', "wb") as f:
+    with open('./detect_location/saved_model.pkl', "wb") as f:
         pickle.dump(lp, f)
     return lp
 

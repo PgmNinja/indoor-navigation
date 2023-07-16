@@ -12,12 +12,6 @@ def predict():
 
     current_data = {**wifi_devices, **bluetooth_devices}
 
-    with open('saved_model.pkl', "rb") as f:
+    with open('./detect_location/saved_model.pkl', "rb") as f:
         lp = pickle.load(f)
     return lp.predict(current_data)[0]
-
-def main():
-    print(predict())
-
-if __name__ == '__main__':
-    main()

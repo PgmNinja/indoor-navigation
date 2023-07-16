@@ -22,7 +22,7 @@ class ScanDelegate(DefaultDelegate):
 
 
 scanner = Scanner().withDelegate(ScanDelegate())
-all_devices = scanner.scan(10)
+all_devices = scanner.scan(20)
 
 
 class BluetoothScanner(object):
