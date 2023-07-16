@@ -17,12 +17,11 @@ class ScanDelegate(DefaultDelegate):
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
         if dev.connectable and dev.rssi != 0:
-            print("Connected device:", dev.addr)
-            print("RSSI:", dev.rssi)
+            print('Connectable device identified: ', dev.addr)
 
 
 scanner = Scanner().withDelegate(ScanDelegate())
-all_devices = scanner.scan(20)
+all_devices = scanner.scan(10)
 
 
 class BluetoothScanner(object):

@@ -3,6 +3,8 @@
 # chmod +x save_datapoints.sh - before executing --> then sudo ./save_datapoints.sh
 read -p "Enter the location : " location
 read -p "How many times would you like to save the access points? : " n
+read -p "Do you want to train the model after saving the access points? 1 - Yes, 2 - No: " y
+
 count=1
 
 while [ $count -le $n ];
@@ -15,3 +17,8 @@ while [ $count -le $n ];
             echo "Execution failed!"
         fi
     done
+
+if [ $y ]; then
+    sudo python3 -m detect_location.train_model
+    echo "Successfully trained the model!"
+fi

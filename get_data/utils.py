@@ -1,5 +1,7 @@
 import os
 import json
+import time
+import sys
 
 ALLOWED_BSSID = ['BC:62:D2:48:94:F0']
 
@@ -74,3 +76,15 @@ def ensure_data_path():
 
 def get_label_file(path, label):
     return os.path.join(get_data_path(path), label)
+
+
+def animation(runtime):
+	animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", \
+		"[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
+
+	for i in range(len(animation)):
+		time.sleep(runtime)
+		sys.stdout.write("\r" + animation[i % len(animation)])
+		sys.stdout.flush()
+
+	print("\n")
